@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<input type = "text" style="width: 150px" /> 
+<input type = "button" value = "Add" onclick = "add()"/>	
+<div style ="width: 500px; height: 300px; border:2px solid black; margin: 5px; padding: 5px;">jlkj</div>
+
+<script>
+	var story = "";
+	var threeWords;
+
+	function add()
+	{
+		threeWords = $("input[type='text']").val();
+
+		//this simplifies things.
+		threeWords = threeWords.trim();
+
+		//this regex is supposed to say "Zero or more punctuations" + 
+		// + "word or digit sequence followed by space, followed but word or digit sequence" +
+		//+ followed by a space, followed by a word or digit sequence, followed by zero or more punctuation mark chars
+		if (threeWords.match(/[.?!,]*[\w\d]+\s[\w\d]+\s[\w\d]+[.?!,]*/))
+		{
+			
+			story = story + " " + threeWords;
+			$("div").text(story);
+		}
+		else
+		{
+			alert("Three words, please.")
+		}
+	}
+	</script>
+	</body>
+	</html>
