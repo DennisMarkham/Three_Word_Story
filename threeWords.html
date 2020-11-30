@@ -22,11 +22,23 @@
 		//this regex is supposed to say "Zero or more punctuations" + 
 		// + "word or digit sequence followed by space, followed but word or digit sequence" +
 		//+ followed by a space, followed by a word or digit sequence, followed by zero or more punctuation mark chars
-		if (threeWords.match(/[.?!,]*[\w\d]+\s[\w\d]+\s[\w\d]+[.?!,]*/))
+		if (threeWords.match(/[.?!,]*[\w\d]+[.?!,]*\s{1,2}[\w\d]+[.?!,]*\s{1,2}[\w\d]+[.?!,]*/))
 		{
+			//alright, we've made a slight improvement.  But now if only we could program it so, like, if the threeWords variable begins with a punctuation mark, don't add the space.
+			//let's try this:
+			if(threeWords.match(/^[.?!,]/))
+			{
+				story = story + threeWords;
+			}	
+			else
+			{
+				story = story + " " + threeWords;
+			}
+			//booyah!
+
 			
-			story = story + " " + threeWords;
 			$("div").text(story);
+			$("input[type='text']").val('');
 		}
 		else
 		{
