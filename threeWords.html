@@ -6,7 +6,7 @@
 <body>
 <input type = "text" style="width: 150px" /> 
 <input type = "button" value = "Add" onclick = "add()"/>	
-<div style ="width: 500px; height: 300px; border:2px solid black; margin: 5px; padding: 5px;">jlkj</div>
+<div style ="width: 500px; height: 300px; border:2px solid black; margin: 5px; padding: 5px;"></div>
 
 <script>
 	var story = "";
@@ -35,7 +35,6 @@
 				story = story + " " + threeWords;
 			}
 			//booyah!
-
 			
 			$("div").text(story);
 			$("input[type='text']").val('');
@@ -44,6 +43,9 @@
 		{
 			alert("Three words, please.")
 		}
+
+		//oh wait, now I see the problem.  It rejects if it goes under three words, but not over three words.  Not problem is .match.  Match only detects if the pattern is there, not if
+		//its all that's there.
 	}
 	</script>
 	</body>
